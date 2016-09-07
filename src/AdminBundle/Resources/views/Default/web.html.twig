@@ -1,0 +1,50 @@
+
+{% extends "AdminBundle:Default:home.html.twig"%}
+
+         
+{% block web %}
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/framework/css/web.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/framework/css/admin.css') }}" type="text/css" media="all" />
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    </head>
+    <body>
+        
+        <h1 class="page-header">
+                    Projets Web
+                    <small>Custum</small>
+                </h1>
+       
+        {% for projetweb in web%}
+            <div class="form-web">
+     <div class="container">
+            <div class="row">
+  <div class="col-sm-6 col-md-6 col-md-offset-4">
+    <div class="thumbnail">
+         <img src="..." alt="...">
+            <p>{{projetweb.imgMin}}</p>
+            <p>{{projetweb.images}}</p>
+            <p>{{projetweb.description}}</p>
+            <p>{{projetweb.client}}</p>
+            <p>{{projetweb.annees}}</p>
+            <p>{{projetweb.nom}}</p>
+            <p>{{projetweb.realisation}}</p>
+            </div>
+            </div>
+            </div>
+            <div class="btn-projet">
+            <a class="edit" href="{{path("edit",{"id":projetweb.id})}}">editer une news </a>
+             <a class="delate" href="{{path("delate",{"id":projetweb.id})}}">supprimer une news </a>
+             </div>
+             </div>
+            {% endfor %}
+             <div class="container">
+            <a class="add-work" href="{{path("form")}}"><h1>ajouter un projet</h1> </a>
+            </div>
+    </body>
+    {% endblock %}
+    
